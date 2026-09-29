@@ -1,10 +1,61 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title>UniWAM</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UniWAM | Project Page</title>
+  <style>
+    :root { font-family: Arial, Helvetica, sans-serif; color: #363636; scroll-behavior: smooth; }
+    * { box-sizing: border-box; }
+    body { margin: 0; }
+    a { color: #3288c8; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    nav { height: 50px; display: flex; align-items: center; justify-content: center; gap: 28px; background: #fff; }
+    nav a { color: #444; font-size: 15px; }
+    .hero { min-height: calc(100svh - 50px); position: relative; display: grid; place-items: center; overflow: hidden; color: white; text-align: center; background: linear-gradient(135deg, #303941, #141a20); }
+    .hero video, .hero img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .hero::after { content: ""; position: absolute; inset: 0; background: rgba(0,0,0,.53); }
+    .hero-content { position: relative; z-index: 1; padding: 24px; }
+    .hero h1 { margin: 0; font-size: clamp(54px, 8vw, 86px); letter-spacing: -.05em; line-height: 1; }
+    .hero p { margin: 8px 0 0; font-size: clamp(19px, 2.5vw, 29px); font-weight: 600; }
+    .scroll { position: absolute; z-index: 1; bottom: 20px; color: white; font-weight: 700; }
+    main { max-width: 960px; margin: auto; padding: 60px 24px 100px; }
+    .intro { text-align: center; }
+    h2 { font-size: clamp(28px, 4vw, 40px); line-height: 1.2; margin: 0 0 28px; }
+    h3 { font-size: 29px; margin: 0 0 20px; text-align: center; }
+    .authors { color: #3288c8; font-size: 21px; line-height: 1.8; }
+    .affiliation { font-size: 18px; margin: 18px 0 28px; }
+    .links { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; }
+    .links a { min-width: 142px; padding: 11px 22px; border-radius: 999px; background: #363636; color: white; }
+    .links a:hover { background: #555; text-decoration: none; }
+    section { margin-top: 95px; }
+    section p { max-width: 760px; margin: 0 auto; line-height: 1.6; font-size: 17px; text-align: justify; }
+    .media { margin: 26px auto 0; max-width: 800px; aspect-ratio: 16 / 9; display: grid; place-items: center; background: #eef0f2; color: #737980; border-radius: 4px; text-align: center; }
+    .media video, .media img { width: 100%; height: 100%; object-fit: contain; }
+    footer { margin-top: 95px; color: #777; font-size: 14px; text-align: center; }
+    @media (max-width: 600px) { main { padding-top: 45px; } .authors { font-size: 18px; } .affiliation { font-size: 16px; } section { margin-top: 72px; } .links a { min-width: 120px; } }
+  </style>
 </head>
 <body>
-    <h1>UniWAM</h1>
-    <p>Project page is working.</p>
+  <nav aria-label="Main navigation"><a href="#top">⌂ Home</a><a href="#abstract">Abstract</a><a href="#video">Video</a><a href="#overview">Overview</a></nav>
+  <header class="hero" id="top">
+    <!-- Add a project video here when available: <video src="static/hero.mp4" autoplay muted loop playsinline></video> -->
+    <div class="hero-content"><h1>UniWAM</h1><p>Project subtitle</p></div>
+    <a class="scroll" href="#project">▼ Scroll down the page to find more ▼</a>
+  </header>
+  <main>
+    <div class="intro" id="project">
+      <h2>UniWAM: Project Title</h2>
+      <div class="authors">Author One · Author Two · Author Three</div>
+      <div class="affiliation">Institution / Lab</div>
+      <div class="links"><a href="#abstract">Paper</a><a href="#video">Video</a><a href="#overview">Code</a></div>
+    </div>
+    <section id="abstract"><h3>Abstract</h3><p>Add the project abstract here.</p></section>
+    <section id="video"><h3>Video</h3><div class="media">Add a project video here</div></section>
+    <section id="overview"><h3>Overview of UniWAM</h3><p>Add a short overview of the method and its main contribution here.</p><div class="media">Add a method figure here</div></section>
+    <section id="experiments"><h3>Experiments</h3><p>Add experiment results and demonstrations here.</p><div class="media">Add a result figure here</div></section>
+    <section id="conclusion"><h3>Conclusion</h3><p>Add the conclusion here.</p></section>
+    <footer>UniWAM project page</footer>
+  </main>
 </body>
 </html>
