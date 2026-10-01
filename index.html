@@ -1,102 +1,712 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>UniWAM | Project Page</title>
-  <style>
-    :root { --paper:#f5f7fc; --ink:#16212b; --muted:#5b6068; --accent:#5920c9; --line:#dce0eb; font-family:system-ui,-apple-system,"Segoe UI",sans-serif; color:var(--ink); background:var(--paper); scroll-behavior:smooth }
-    * { box-sizing:border-box }
-    body { margin:0; font-size:17px; line-height:1.8 }
-    a { color:inherit; text-underline-offset:4px }
-    a:hover { color:var(--accent) }
-    a:focus-visible { outline:3px solid var(--accent); outline-offset:4px }
-    main { width:min(960px,calc(100% - 40px)); margin:auto; text-align:center; counter-reset:section }
-    .toc { display:none }
-    .hero { padding:44px 0 20px }
-    .wordmark { margin:0 auto 6px; font-size:clamp(58px,9vw,112px); line-height:1.05; font-weight:800; font-style:italic; letter-spacing:-.07em }
-    .wordmark span, sup { color:var(--accent) }
-    h1,h2,.metric strong { font-family:Georgia,"Times New Roman",serif; font-weight:normal }
-    h1 { max-width:850px; margin:0 auto 22px; font-size:clamp(27px,3.2vw,40px); line-height:1.25 }
-    .authors { display:flex; justify-content:center; flex-wrap:wrap; gap:2px 18px; font:16px/1.9 Consolas,monospace }
-    .affiliation { color:var(--muted); font-size:14px; margin:10px 0 22px }
-    .links { display:flex; justify-content:center; flex-wrap:wrap; gap:10px }
-    .links a,.links span { min-width:95px; padding:7px 20px; border:1px solid var(--ink); border-radius:24px; font-size:14px; text-decoration:none }
-    .links a:hover { color:#fff; background:var(--accent); border-color:var(--accent) }
-    .links span { color:var(--muted); border-color:var(--line) }
-    section { padding-top:54px; scroll-margin-top:25px }
-    .heading { padding-bottom:20px; margin-bottom:28px; border-bottom:1px solid var(--line) }
-    .heading::before { counter-increment:section; content:counter(section,decimal-leading-zero); display:block; color:var(--accent); font:13px/1.5 Consolas,monospace; letter-spacing:.28em; margin-bottom:10px }
-    #videos .heading::before { content:none }
-    h2 { margin:0; font-size:clamp(30px,3vw,36px); line-height:1.3 }
-    h3 { font-size:20px; line-height:1.4; margin:30px 0 12px }
-    p { margin:0 auto 18px; max-width:840px }
-    .note { color:var(--muted); font-size:14px }
-    .video-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; margin:26px 0 }
-    .video-grid article { min-width:0 }
-    .video-grid h3 { font-size:15px; margin:8px 0 0 }
-    .video-box,.figure { display:grid; place-items:center; color:var(--muted); background:#e8ebf3; border:1px dashed #c7cddb; border-radius:8px }
-    .video-box { aspect-ratio:4/3; font-size:14px }
-    .figure { width:min(100%,800px); min-height:280px; margin:28px auto; padding:20px }
-    .figure img,.figure video { display:block; max-width:100%; width:100%; height:auto }
-    #abstract { margin-top:52px; padding:32px; border-radius:10px; background:#edf0f7 }
-    #abstract .heading { border:0; padding:0; margin-bottom:20px }
-    .contributions { max-width:840px; padding:0; margin:auto; list-style:none; text-align:left }
-    .contributions li { display:grid; grid-template-columns:54px 1fr; gap:20px; padding:20px 0; border-bottom:1px solid var(--line) }
-    .contributions b { color:var(--accent); font:48px/1 Georgia,serif }
-    .contributions h3 { margin:0 0 5px; font-size:18px }
-    .contributions p { margin:0 }
-    .metrics { display:grid; grid-template-columns:repeat(3,1fr); max-width:840px; margin:0 auto; border-block:1px solid var(--line) }
-    .metric { padding:20px 12px }
-    .metric + .metric { border-left:1px solid var(--line) }
-    .metric strong { display:block; color:var(--accent); font-size:42px; line-height:1.3 }
-    .metric span { font-size:14px }
-    footer { display:flex; justify-content:space-between; border-top:1px solid var(--line); margin-top:70px; padding:26px 0 40px; color:var(--muted); font-size:13px }
-    @media(min-width:1370px) { .toc { display:flex; flex-direction:column; gap:10px; position:fixed; top:180px; left:max(28px,calc((100vw - 1370px)/2)); width:175px; font:13px/1.5 Consolas,monospace } .toc a { text-decoration:none } .toc strong { font:italic 700 22px system-ui,sans-serif } .toc strong span { color:var(--accent) } .toc small { color:var(--muted); letter-spacing:.12em; border-bottom:1px solid var(--line); padding-bottom:10px } main { transform:translateX(35px) } }
-    @media(max-width:650px) { body { font-size:16px } .hero { padding-top:26px } .authors { font-size:14px } .video-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px } .contributions li { grid-template-columns:34px 1fr; gap:12px } .contributions b { font-size:38px } .metric strong { font-size:29px } .metric span { font-size:12px } #abstract { padding:24px 18px } footer { gap:15px } }
-    @media(prefers-reduced-motion:reduce) { :root { scroll-behavior:auto } }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="UniWAM unifies physical reasoning, world modeling, and action prediction for robotic manipulation.">
+<title>UniWAM: Unified World-Action Model</title>
+<link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <nav class="toc" aria-label="Contents">
-    <a href="#top"><strong>Uni<span>WAM</span></strong></a><small>CONTENTS</small>
-    <a href="#videos">Videos</a><a href="#abstract">Abstract</a><a href="#contributions">Contributions</a>
-    <a href="#platform">Platform</a><a href="#model">Model</a><a href="#training">Training</a>
-    <a href="#results">Results</a><a href="#citation">BibTeX</a>
-  </nav>
-  <main id="top">
-    <header class="hero">
-      <div class="wordmark">Uni<span>WAM</span></div>
-      <h1>UniWAM: Project Title</h1>
-      <div class="authors"><span>Author One<sup>1</sup></span><span>Author Two<sup>1</sup></span><span>Author Three<sup>2</sup></span></div>
-      <p class="affiliation"><sup>1</sup> Institution One &nbsp; <sup>2</sup> Institution Two</p>
-      <div class="links"><span title="Add paper URL">Paper</span><span title="Add code URL">Code</span><a href="#videos">Video</a></div>
-    </header>
-    <section id="videos">
-      <div class="heading"><h2>Real-World Demonstrations</h2></div>
-      <div class="video-grid">
-        <article><div class="video-box">Add video</div><h3>Task One</h3><div class="note">Autonomous rollout</div></article>
-        <article><div class="video-box">Add video</div><h3>Task Two</h3><div class="note">Autonomous rollout</div></article>
-        <article><div class="video-box">Add video</div><h3>Task Three</h3><div class="note">Autonomous rollout</div></article>
-      </div>
-    </section>
-    <section id="abstract"><div class="heading"><h2>Abstract</h2></div><p>Add the UniWAM abstract here.</p></section>
-    <section id="contributions"><div class="heading"><h2>Contributions</h2></div>
-      <ol class="contributions">
-        <li><b>1</b><div><h3>First contribution</h3><p>Describe the first contribution here.</p></div></li>
-        <li><b>2</b><div><h3>Second contribution</h3><p>Describe the second contribution here.</p></div></li>
-        <li><b>3</b><div><h3>Third contribution</h3><p>Describe the third contribution here.</p></div></li>
-      </ol>
-    </section>
-    <section id="results"><div class="heading"><h2>Key Results</h2></div>
-      <div class="metrics"><div class="metric"><strong>—</strong><span>Primary metric</span></div><div class="metric"><strong>—</strong><span>Secondary metric</span></div><div class="metric"><strong>—</strong><span>Evaluated tasks</span></div></div>
-      <p class="note">Add verified results after evaluation.</p>
-    </section>
-    <section id="platform"><div class="heading"><h2>Platform</h2></div><p>Describe the UniWAM platform here.</p><div class="figure">Add a platform figure here</div></section>
-    <section id="model"><div class="heading"><h2>Model Architecture</h2></div><p>Describe the UniWAM model here.</p><div class="figure">Add a model figure here</div></section>
-    <section id="training"><div class="heading"><h2>Training Recipe</h2></div><h3>Stage 1 · Pre-training</h3><p>Describe pre-training here.</p><h3>Stage 2 · Post-training</h3><p>Describe post-training here.</p></section>
-    <section id="citation"><div class="heading"><h2>BibTeX</h2></div><p class="note">Add the paper citation here when available.</p></section>
-    <footer><span>UniWAM</span><a href="#top">Back to top ↑</a></footer>
-  </main>
+<a class="skip" href="#top">Skip to content</a>
+<nav class="toc" aria-label="Contents">
+<a href="#top">
+<strong>Uni<span>WAM</span>
+</strong>
+</a>
+<small>CONTENTS</small>
+<a href="#videos">Videos</a>
+<a href="#abstract">Abstract</a>
+<a href="#contributions">Contributions</a>
+<a href="#results">Results</a>
+<a href="#platform">Platform</a>
+<a href="#model">Model</a>
+<a href="#training">Training</a>
+<a href="#citation">BibTeX</a>
+</nav>
+<main id="top">
+<header class="hero" data-source-id="main.tex">
+<div class="wordmark">Uni<span>WAM</span>
+</div>
+<h1>UniWAM: Unified World-Action Model</h1>
+<p class="team">UniWAM Team</p>
+<div class="author-group">
+<h2>Core Contributors</h2>
+<div class="authors">
+<span>Jiayi Chen<sup>1,2</sup>
+</span>
+<span>Jingbo Wang<sup>1,2</sup>
+</span>
+<span>Shuai Zhou<sup>3</sup>
+</span>
+<span>Xicheng Gong<sup>4</sup>
+</span>
+</div>
+</div>
+<div class="author-group">
+<h2>Contributors</h2>
+<div class="authors">
+<span>Ziyang Zhou<sup>1,2</sup>
+</span>
+<span>Zehua Fan<sup>5</sup>
+</span>
+<span>Junwu E<sup>1</sup>
+</span>
+<span>Haodong Yan<sup>1</sup>
+</span>
+<span>Fuhao Li<sup>1,2</sup>
+</span>
+<span>Qize Yu<sup>4</sup>
+</span>
+<span>Xu Huang<sup>2</sup>
+</span>
+<span>Pengwei Wang<sup>6</sup>
+</span>
+<span>Wen Chen<sup>2</sup>
+</span>
+<span>Haoang Li<sup>1,2</sup>
+</span>
+</div>
+</div>
+<div class="author-group">
+<h2>Project Lead</h2>
+<div class="authors">
+<span>Wenxuan Song<sup>1</sup>
+</span>
+</div>
+</div>
+<div class="author-group">
+<h2>Project PI</h2>
+<div class="authors">
+<span>Shunbo Zhou<sup>2</sup>
+</span>
+</div>
+</div>
+<p class="affiliation">
+<span>
+<sup>1</sup>The Hong Kong University of Science and Technology (Guangzhou)</span>
+<span>
+<sup>2</sup>OLA Dimensions</span>
+<span>
+<sup>3</sup>Carnegie Mellon University</span>
+<span>
+<sup>4</sup>Peking University</span>
+<span>
+<sup>5</sup>Shanghai Jiao Tong University</span>
+<span>
+<sup>6</sup>Beijing Academy of Artificial Intelligence</span>
+</p>
+<div class="links">
+<span>Paper · Coming soon</span>
+<a href="https://github.com/UniWAM/UniWAM">Code ↗</a>
+<a href="https://www.modelscope.cn/collections/Kosmos524/UniWAM">Checkpoints ↗</a>
+<a href="#videos">Videos ↓</a>
+</div>
+</header>
+<section id="videos" data-source-id="sec/04_experiments.tex">
+<div class="heading">
+<h2>Real-World Demonstrations</h2>
+</div>
+<div class="video-grid">
+<article>
+<div class="video-box" aria-label="Pick-Anything video coming soon">Coming soon</div>
+<h3>Pick-Anything</h3>
+<p class="note">Identify and grasp the target object in a multi-object scene.</p>
+</article>
+<article>
+<div class="video-box" aria-label="Diverse-Interaction video coming soon">Coming soon</div>
+<h3>Diverse-Interaction</h3>
+<p class="note">Ground both the target object and the requested interaction.</p>
+</article>
+<article>
+<div class="video-box" aria-label="Place-Relative video coming soon">Coming soon</div>
+<h3>Place-Relative</h3>
+<p class="note">Place an object in the instructed spatial relation to another object.</p>
+</article>
+<article>
+<div class="video-box" aria-label="Drawer-Storage video coming soon">Coming soon</div>
+<h3>Drawer-Storage</h3>
+<p class="note">Coordinate both arms to open a drawer and store the target object.</p>
+</article>
+<article>
+<div class="video-box" aria-label="Long-Horizon Organization video coming soon">Coming soon</div>
+<h3>Long-Horizon Organization</h3>
+<p class="note">Follow “Tidy up the desk.” through cup placement, drawer storage, and marker placement.</p>
+</article>
+</div>
+</section>
+<section id="abstract">
+<div class="heading">
+<h2>Abstract</h2>
+</div>
+<p data-claim-id="abstract">Vision-language-action models benefit from the understanding and reasoning capabilities of pretrained vision-language models, but action-only supervision provides limited grounding in world dynamics. Conversely, world-action models inherit spatiotemporal priors from video generation models, yet remain limited in semantic understanding and reasoning under distribution shifts. We introduce UniWAM, a unified architecture that integrates a physical reasoner, a world generator, and an action predictor to jointly learn semantic understanding of the physical world, visual generation, and action prediction. To ensure the quality of the training data, we developed a rigorous data cleaning and annotation pipeline for both human egocentric data and robot data. To adapt the vision-language component to embodied tasks while preserving its inherited language capabilities, we represent low-level actions in natural language and introduce a pre-training recipe that assigns complementary supervision from visual question answering (VQA) data, human egocentric data, and robot demonstrations to the appropriate model components. During post-training, future visual noise augmentation reduces reliance on precise future predictions, while history-conditioned flow matching uses encoded action history to initialize action generation. Together, these designs significantly reduce denoising steps while maintaining performance. UniWAM achieves state-of-the-art (SOTA) performance across multiple evaluations, including in-distribution performance, robustness, generalization, instruction following, and long-horizon task execution. Furthermore, we uncover a log-linear scaling law of unified human-robot co-training, demonstrating the effectiveness of large-scale pre-training on a mixture of human and robot data.</p>
+</section>
+<section id="contributions">
+<div class="heading">
+<h2>Contributions</h2>
+</div>
+<ol class="contributions">
+<li>
+<b>1</b>
+<div>
+<h3>Three-source pre-training</h3>
+<p data-claim-id="contribution-1">Robot demonstrations, human egocentric data, and VQA provide complementary supervision; source-level ablations evaluate their contributions.</p>
+</div>
+</li>
+<li>
+<b>2</b>
+<div>
+<h3>History-conditioned post-training</h3>
+<p data-claim-id="contribution-2">Recent action history and perturbed future visual latents are incorporated into joint flow matching.</p>
+</div>
+</li>
+<li>
+<b>3</b>
+<div>
+<h3>Broad evaluation</h3>
+<p data-claim-id="contribution-3">Simulation and real-world evaluations assess in-distribution performance, robustness, generalization, instruction following, and long-horizon execution.</p>
+</div>
+</li>
+<li>
+<b>4</b>
+<div>
+<h3>Human–robot co-training at scale</h3>
+<p data-claim-id="contribution-4">The report studies a log-linear scaling relationship for unified human–robot co-training and the gains from mixed-data pre-training.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="results">
+<div class="heading">
+<h2>Key Results</h2>
+</div>
+<div class="metrics" data-source-id="table/libero_results.tex table/libero_plus_results.tex table/robotwin_summary.tex">
+<div class="metric">
+<strong>99.2%</strong>
+<span>LIBERO · Average success</span>
+</div>
+<div class="metric">
+<strong>92.6%</strong>
+<span>LIBERO-Plus · Overall success</span>
+</div>
+<div class="metric">
+<strong>68.32%</strong>
+<span>RoboTwin 2.0 · C2R success</span>
+</div>
+</div>
+<p data-claim-id="results-summary">UniWAM also achieves 75.14% success in RoboTwin 2.0 Clean2Clean (C2C). Clean2Rand (C2R) evaluates policies trained on clean data under domain randomization.</p>
+<p class="note">Comparisons below refer only to the methods listed in each table. Bold and underlined values reproduce the report’s table annotations; † preserves a source marker from the report. Swipe or scroll wide tables to see all columns.</p>
+
+<div class="table-scroll" role="region" aria-label="LIBERO results table; scroll horizontally on small screens" tabindex="0" data-source-id="table/libero_results.tex">
+<table>
+<caption>LIBERO — success rate (%)</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Spatial</th>
+<th scope="col">Object</th>
+<th scope="col">Goal</th>
+<th scope="col">Long</th>
+<th scope="col">Average ↑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">π₀</th>
+<td>98.0</td>
+<td>96.8</td>
+<td>94.4</td>
+<td>88.4</td>
+<td>94.4</td>
+</tr>
+<tr>
+<th scope="row">PD-VLA</th>
+<td>95.5</td>
+<td>96.7</td>
+<td>94.9</td>
+<td>91.7</td>
+<td>94.7</td>
+</tr>
+<tr>
+<th scope="row">π₀.₅</th>
+<td>98.8</td>
+<td>98.2</td>
+<td>98.0</td>
+<td>92.4</td>
+<td>96.9</td>
+</tr>
+<tr>
+<th scope="row">GR00T-N1.7</th>
+<td>97.7</td>
+<td>98.5</td>
+<td>97.5</td>
+<td>94.4</td>
+<td>97.0</td>
+</tr>
+<tr>
+<th scope="row">OpenVLA-OFT</th>
+<td>97.6</td>
+<td>98.4</td>
+<td>97.9</td>
+<td>94.5</td>
+<td>97.1</td>
+</tr>
+<tr>
+<th scope="row">Fast-WAM</th>
+<td>98.2</td>
+<td>
+<strong>100.0</strong>
+</td>
+<td>97.0</td>
+<td>95.2</td>
+<td>97.6</td>
+</tr>
+<tr>
+<th scope="row">Motus</th>
+<td>96.8</td>
+<td>99.8</td>
+<td>96.6</td>
+<td>97.6</td>
+<td>97.7</td>
+</tr>
+<tr>
+<th scope="row">VLA-Adapter</th>
+<td>99.6</td>
+<td>99.6</td>
+<td>98.2</td>
+<td>96.4</td>
+<td>98.5</td>
+</tr>
+<tr>
+<th scope="row">X-VLA</th>
+<td>98.2</td>
+<td>98.6</td>
+<td>97.8</td>
+<td>97.6</td>
+<td>98.1</td>
+</tr>
+<tr>
+<th scope="row">Cosmos-Policy</th>
+<td>98.1</td>
+<td>
+<strong>100.0</strong>
+</td>
+<td>98.2</td>
+<td>97.6</td>
+<td>98.5</td>
+</tr>
+<tr>
+<th scope="row">LingBot-VA</th>
+<td>98.5</td>
+<td>99.6</td>
+<td>97.2</td>
+<td>
+<strong>98.5</strong>
+</td>
+<td>98.5</td>
+</tr>
+<tr>
+<th scope="row">Spatial Forcing</th>
+<td>99.4</td>
+<td>99.6</td>
+<td>98.8</td>
+<td>96.0</td>
+<td>98.5</td>
+</tr>
+<tr>
+<th scope="row">Xiaomi-Robotics-0</th>
+<td>98.8</td>
+<td>
+<strong>100.0</strong>
+</td>
+<td>98.8</td>
+<td>97.2</td>
+<td>98.7</td>
+</tr>
+<tr class="ours">
+<th scope="row">
+<strong>UniWAM (Ours)</strong>
+</th>
+<td>
+<strong>99.6</strong>
+</td>
+<td>99.6</td>
+<td>
+<strong>99.2</strong>
+</td>
+<td>98.4</td>
+<td>
+<strong>99.2</strong>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-scroll" role="region" aria-label="LIBERO-Plus results table; scroll horizontally on small screens" tabindex="0" data-source-id="table/libero_plus_results.tex">
+<table>
+<caption>LIBERO-Plus — success rate (%)</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">Camera</th>
+<th scope="col">Robot</th>
+<th scope="col">Language</th>
+<th scope="col">Light</th>
+<th scope="col">Background</th>
+<th scope="col">Noise</th>
+<th scope="col">Layout</th>
+<th scope="col">Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th scope="row">π₀</th>
+<td>79.6</td>
+<td>21.1</td>
+<td>72.5</td>
+<td>84.7</td>
+<td>86.2</td>
+<td>68.3</td>
+<td>69.4</td>
+<td>67.4</td>
+</tr>
+<tr>
+<th scope="row">GR00T-N1.6</th>
+<td>92.6</td>
+<td>33.5</td>
+<td>80.1</td>
+<td>93.6</td>
+<td>95.4</td>
+<td>93.6</td>
+<td>75.0</td>
+<td>79.4</td>
+</tr>
+<tr>
+<th scope="row">OpenVLA-OFT</th>
+<td>92.8</td>
+<td>30.3</td>
+<td>85.8</td>
+<td>94.9</td>
+<td>93.9</td>
+<td>89.3</td>
+<td>77.6</td>
+<td>79.5</td>
+</tr>
+<tr>
+<th scope="row">Spatial Forcing</th>
+<td>95.2</td>
+<td>47.9</td>
+<td>73.5</td>
+<td>91.2</td>
+<td>95.6</td>
+<td>92.2</td>
+<td>74.8</td>
+<td>80.5</td>
+</tr>
+<tr>
+<th scope="row">MemoryVLA</th>
+<td>91.4</td>
+<td>48.6</td>
+<td>79.4</td>
+<td>95.2</td>
+<td>95.3</td>
+<td>94.0</td>
+<td>75.7</td>
+<td>81.9</td>
+</tr>
+<tr>
+<th scope="row">π₀.₅</th>
+<td>87.6</td>
+<td>
+<u>78.4</u>
+</td>
+<td>80.0</td>
+<td>92.6</td>
+<td>91.6</td>
+<td>91.4</td>
+<td>81.8</td>
+<td>86.2</td>
+</tr>
+<tr>
+<th scope="row">ACoT-VLA</th>
+<td>
+<strong>96.6</strong>
+</td>
+<td>70.4</td>
+<td>79.7</td>
+<td>95.1</td>
+<td>
+<u>97.1</u>
+</td>
+<td>
+<u>95.9</u>
+</td>
+<td>
+<strong>85.0</strong>
+</td>
+<td>88.0</td>
+</tr>
+<tr>
+<th scope="row">Kairos</th>
+<td>
+<u>95.5</u>
+</td>
+<td>72.6</td>
+<td>
+<u>86.8</u>
+</td>
+<td>
+<u>97.7</u>
+</td>
+<td>95.8</td>
+<td>
+<strong>96.8</strong>
+</td>
+<td>81.5</td>
+<td>
+<u>89.0</u>
+</td>
+</tr>
+<tr class="ours">
+<th scope="row">
+<strong>UniWAM (Ours)</strong>
+</th>
+<td>92.0</td>
+<td>
+<strong>89.5</strong>
+</td>
+<td>
+<strong>92.2</strong>
+</td>
+<td>
+<strong>97.9</strong>
+</td>
+<td>
+<strong>97.6</strong>
+</td>
+<td>94.3</td>
+<td>
+<u>84.6</u>
+</td>
+<td>
+<strong>92.6</strong>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-scroll" role="region" aria-label="RoboTwin 2.0 results table; scroll horizontally on small screens" tabindex="0" data-source-id="table/robotwin_summary.tex">
+<table>
+<caption>RoboTwin 2.0 — success rate (%)</caption>
+<thead>
+<tr>
+<th scope="col">Method</th>
+<th scope="col">C2C</th>
+<th scope="col">C2R</th>
+<th scope="col">Average</th>
+</tr>
+</thead>
+<tbody>
+<tr class="group">
+<th colspan="4">VLA</th>
+</tr>
+<tr>
+<th scope="row">GR00T-N1.7†</th>
+<td>43.6</td>
+<td>20.7</td>
+<td>32.2</td>
+</tr>
+<tr>
+<th scope="row">StarVLA†</th>
+<td>58.1</td>
+<td>10.6</td>
+<td>34.4</td>
+</tr>
+<tr>
+<th scope="row">Xiaomi Robotics-0</th>
+<td>62.90</td>
+<td>18.20</td>
+<td>40.55</td>
+</tr>
+<tr>
+<th scope="row">Abot-M0</th>
+<td>57.40</td>
+<td>30.36</td>
+<td>43.88</td>
+</tr>
+<tr>
+<th scope="row">X-VLA</th>
+<td>68.00</td>
+<td>20.90</td>
+<td>44.45</td>
+</tr>
+<tr>
+<th scope="row">Spatial Forcing</th>
+<td>77.20</td>
+<td>26.74</td>
+<td>51.97</td>
+</tr>
+<tr>
+<th scope="row">π₀.₅</th>
+<td>70.70</td>
+<td>46.00</td>
+<td>58.35</td>
+</tr>
+<tr>
+<th scope="row">GigaBrain-0.7</th>
+<td>66.80</td>
+<td>
+<u>67.90</u>
+</td>
+<td>67.35</td>
+</tr>
+<tr class="group">
+<th colspan="4">WAM</th>
+</tr>
+<tr>
+<th scope="row">AHA-WAM†</th>
+<td>64.3</td>
+<td>3.2</td>
+<td>33.8</td>
+</tr>
+<tr>
+<th scope="row">FastWAM</th>
+<td>70.20</td>
+<td>1.20</td>
+<td>37.70</td>
+</tr>
+<tr>
+<th scope="row">X-WAM</th>
+<td>70.00</td>
+<td>25.80</td>
+<td>47.90</td>
+</tr>
+<tr>
+<th scope="row">4D-WAM†</th>
+<td>
+<u>81.5</u>
+</td>
+<td>41.8</td>
+<td>61.7</td>
+</tr>
+<tr>
+<th scope="row">OpenWAM-α†</th>
+<td>
+<strong>89.4</strong>
+</td>
+<td>48.7</td>
+<td>
+<u>69.0</u>
+</td>
+</tr>
+<tr class="ours">
+<th scope="row">
+<strong>UniWAM  (ours)</strong>
+</th>
+<td>75.14</td>
+<td>
+<strong>68.32</strong>
+</td>
+<td>
+<strong>71.73</strong>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3>Real-world instruction following and long-horizon execution</h3>
+<p data-claim-id="real-results">Across four instruction-following tasks, UniWAM achieves an average task success rate of 67.5% and an instruction-following rate of 82.5%. In long-horizon tabletop organization, average Task Progress is 5.0 out of 6, compared with 4.8 for π₀.₅ and 3.2 for Motus.</p>
+<figure class="figure" data-source-id="sec/04_experiments.tex">
+<a href="assets/real_robot_results_task_progress.png" aria-label="Open full-size image: Real-world task success, instruction following, and long-horizon Task Progress.">
+<img src="assets/real_robot_results_task_progress.png" alt="Real-world task success, instruction following, and long-horizon Task Progress." loading="lazy">
+</a>
+<figcaption>Real-world task success, instruction following, and long-horizon Task Progress. <a href="assets/real_robot_results_task_progress.png">View full size ↗</a>
+</figcaption>
+</figure>
+</section>
+<section id="platform">
+<div class="heading">
+<h2>Platform</h2>
+</div>
+<p data-claim-id="platform">The real-world setup uses two AgileX Piper arms, each with six degrees of freedom and a parallel gripper. Each arm has a wrist-mounted camera, complemented by a third-person camera with a global view of the workspace.</p>
+<figure class="figure" data-source-id="sec/04_experiments.tex">
+<a href="assets/manipulation.png" aria-label="Open full-size image: Four instruction-following tasks and a multi-stage tabletop organization task on the dual-arm platform.">
+<img src="assets/manipulation.png" alt="Four instruction-following tasks and a multi-stage tabletop organization task on the dual-arm platform." loading="lazy">
+</a>
+<figcaption>Four instruction-following tasks and a multi-stage tabletop organization task on the dual-arm platform. <a href="assets/manipulation.png">View full size ↗</a>
+</figcaption>
+</figure>
+</section>
+<section id="model">
+<div class="heading">
+<h2>Model Architecture</h2>
+</div>
+<p data-claim-id="model">UniWAM connects a Physical Reasoner, a World Generator, and an Action Predictor through joint multimodal attention. The Physical Reasoner uses Qwen3-VL-2B-Instruct; the World Generator uses Wan2.2-TI2V-5B; the Action Predictor models a continuous action flow field.</p>
+<button id="inspect-model" aria-controls="model-figure" aria-expanded="false" hidden>Enlarge architecture</button>
+<figure id="model-figure" class="figure inspect" data-source-id="sec/03_method.tex">
+<a href="assets/model.png" aria-label="Open full-size image: Architecture and data overview from the tech report.">
+<img src="assets/model.png" alt="Architecture and data overview from the tech report." loading="lazy">
+</a>
+<figcaption>Architecture and data overview from the tech report. <a href="assets/model.png">View full size ↗</a>
+</figcaption>
+</figure>
+</section>
+<section id="training">
+<div class="heading">
+<h2>Training Recipe</h2>
+</div>
+<h3>Stage 1 · Pre-training</h3>
+<p data-claim-id="pretraining">Robot demonstrations, human egocentric data, and visual question answering jointly support action learning, future visual prediction, and semantic understanding. Physical language expresses local manipulation behavior in natural language, providing shared supervision for human and robot data.</p>
+<h3>Data processing and annotation</h3>
+<p data-claim-id="processing">The data pipeline cleans and annotates robot and human demonstrations. For EgoDex, EgoANT segments recordings into atomic manipulation subtasks and produces concise descriptions of each segment.</p>
+<figure class="figure" data-source-id="sec/03_method.tex">
+<a href="assets/egoant_pipeline.png" aria-label="Open full-size image: EgoANT segmentation and labeling pipeline for human egocentric data.">
+<img src="assets/egoant_pipeline.png" alt="EgoANT segmentation and labeling pipeline for human egocentric data." loading="lazy">
+</a>
+<figcaption>EgoANT segmentation and labeling pipeline for human egocentric data. <a href="assets/egoant_pipeline.png">View full size ↗</a>
+</figcaption>
+</figure>
+<h3>Stage 2 · Post-training</h3>
+<p data-claim-id="posttraining">Future visual noise augmentation reduces dependence on precise future predictions. History-conditioned flow matching initializes action generation from perturbed action history and refines it toward future actions; the visual source remains Gaussian noise.</p>
+<figure class="figure" data-source-id="sec/03_method.tex">
+<a href="assets/action_generation.png" aria-label="Open full-size image: History-conditioned action denoising, compared with generation initialized from Gaussian noise.">
+<img src="assets/action_generation.png" alt="History-conditioned action denoising, compared with generation initialized from Gaussian noise." loading="lazy">
+</a>
+<figcaption>History-conditioned action denoising, compared with generation initialized from Gaussian noise. <a href="assets/action_generation.png">View full size ↗</a>
+</figcaption>
+</figure>
+<h3>Scaling human–robot co-training</h3>
+<p data-claim-id="scaling">The report compares robot-only and robot-plus-human training with VQA in both settings. Human data becomes beneficial at larger robot-data scales, alongside improvements in validation loss and downstream RoboTwin performance.</p>
+<figure class="figure" data-source-id="sec/04_experiments.tex">
+<a href="assets/scaling.png" aria-label="Open full-size image: Data scaling: validation MSE and RoboTwin Clean2Rand success rate.">
+<img src="assets/scaling.png" alt="Data scaling: validation MSE and RoboTwin Clean2Rand success rate." loading="lazy">
+</a>
+<figcaption>Data scaling: validation MSE and RoboTwin Clean2Rand success rate. <a href="assets/scaling.png">View full size ↗</a>
+</figcaption>
+</figure>
+<h3>Ablation studies</h3>
+<p data-claim-id="ablation">Ablations examine pre-training data composition, the Physical Reasoner’s training strategy, and action generation. The full three-source configuration reaches 71.73% average success across RoboTwin C2C and C2R.</p>
+<figure class="figure" data-source-id="sec/04_experiments.tex">
+<a href="assets/ablation.png" aria-label="Open full-size image: RoboTwin ablations of pre-training data, reasoner training, and action generation.">
+<img src="assets/ablation.png" alt="RoboTwin ablations of pre-training data, reasoner training, and action generation." loading="lazy">
+</a>
+<figcaption>RoboTwin ablations of pre-training data, reasoner training, and action generation. <a href="assets/ablation.png">View full size ↗</a>
+</figcaption>
+</figure>
+</section>
+
+<section id="citation">
+<div class="heading">
+<h2>BibTeX</h2>
+</div>
+<p class="note">Formal citation details will be added when the technical report is released.</p>
+</section>
+<footer>
+<span>UniWAM</span>
+<a href="#top">Back to top ↑</a>
+</footer>
+</main>
+<script src="assets/site.js">
+</script>
 </body>
 </html>
