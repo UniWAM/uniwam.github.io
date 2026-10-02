@@ -88,6 +88,7 @@ section > p { max-width:790px; }
 .video-grid article:nth-child(4) { grid-column:2 / span 2; }
 .video-grid article:nth-child(5) { grid-column:4 / span 2; }
 .video-box { border-style:solid; background:#eeedf8; color:#716b7e; }
+.video-grid video { display:block; width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:8px; background:#14151a }
 .video-grid .note { max-width:280px; }
 .metrics { margin-bottom:24px; }
 .metric { padding:24px 12px; }
