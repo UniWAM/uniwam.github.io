@@ -111,6 +111,7 @@ th,td { padding:10px 12px; }
 .toc a[aria-current="location"] { color:var(--accent); font-weight:700; }
 #citation { border-top:1px solid var(--line); margin-top:54px; padding-top:32px; }
 #citation .heading { border:0; margin-bottom:12px; }
+#citation pre { max-width:840px; margin:0 auto; padding:20px; overflow-wrap:anywhere; white-space:pre-wrap; text-align:left; font:13px/1.7 Consolas,monospace; background:#edf0f7; border-radius:8px; }
 .image-dialog { width:min(96vw,1800px); max-width:96vw; max-height:94vh; border:1px solid var(--line); border-radius:10px; padding:16px; background:var(--paper); color:var(--ink); }
 .image-dialog::backdrop { background:rgb(15 19 30 / .76); }
 .dialog-toolbar { display:flex; align-items:center; justify-content:space-between; gap:20px; margin-bottom:14px; }
